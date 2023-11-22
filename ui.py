@@ -5,10 +5,10 @@ import math
 
 from bpy.props import PointerProperty
 
-from .properties import MultiFileProperties
+# from op.op_one import OT_Operator_One
+# from op.op_two import OT_Operator_Two
 
-from op.op_one import OT_Operator_One
-from op.op_two import OT_Operator_Two
+from .properties import MultiFileProperties
 
 class MultiFile_Panel(bpy.types.Panel):
     bl_idname = "OBJECT_PT_multifile_panel"
@@ -30,12 +30,12 @@ class MultiFile_Panel(bpy.types.Panel):
         col.prop(mfa_props, "random_scale_percentage", text="Randomness", slider=True)
 
         layout.prop(mfa_props, "use_normal_rotation")
-        layout.prop(mfa_props, "rotation", slider=True)
         layout.prop(mfa_props, "normal_offset", text="Offset", slider=True)
         layout.prop(mfa_props, "seed")
 
         layout.operator('tla.op_one', icon="FUND")
         layout.operator('tla.op_two', icon="KEYTYPE_EXTREME_VEC")
+        layout.operator('tla.op_three', icon="KEYTYPE_EXTREME_VEC")
 
 def draw_menu(self, context):
     layout = self.layout
